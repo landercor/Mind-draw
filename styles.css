@@ -1,0 +1,207 @@
+/* Tipografía y base */
+body {
+  font-family: 'Lexend', sans-serif;
+  margin: 0;
+  background-color: #241621;
+  color: #f2e6e9;
+}
+
+/* Encabezado principal */
+header {
+  background: linear-gradient(90deg, #8b3a4a, #a14c5f);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+/* Navegación superior */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #2f1b2a;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+nav a {
+  text-decoration: none;
+  color: #f2e6e9;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #a14c5f;
+}
+
+/* Contenedor principal */
+.Comparts {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Secciones */
+section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  color: #a14c5f;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.Teorig {
+  color: #8b3a4a;
+}
+
+.Recors {
+  color: #b06a7a;
+}
+
+.Comuni {
+  color: #c48c9b;
+}
+
+/* Área de dibujo */
+.canvas-container {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+canvas {
+  border: 2px solid #8b3a4a;
+  background-color: #fff;
+  cursor: crosshair;
+  border-radius: 8px;
+}
+
+/* Controles de pincel */
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.controls input[type="color"],
+.controls input[type="range"] {
+  cursor: pointer;
+}
+
+#clearBtn {
+  background-color: #a14c5f;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#clearBtn:hover {
+  background-color: #8b3a4a;
+}
+
+/* Galería de imágenes */
+.cardI {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.cardI img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background-color: #d8a3b0;
+}
+
+/* Pie de página */
+footer {
+  background-color: #2f1b2a;
+  color: #d8a3b0;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+/* Botón de enlace */
+.button-link {
+  display: inline-block;
+  background-color: #7a2f42;
+  color: #f5f0f2;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.button-link:hover {
+  background-color: #5c1f2f;
+}
+
+.techniques {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.technique-block {
+  margin-bottom: 3rem;
+}
+
+.technique-block h2 {
+  color: #a14c5f;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.technique-block p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f2e6e9;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.image-gallery img {
+  width: 280px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background-color: #3a2a3b;
+  object-fit: cover;
+}

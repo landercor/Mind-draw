@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Mind-Draw</title>
+</head>
+
+<body>
+<div class="container">
+
+  <header>
+    <h1>Aprende a Dibujar</h1>
+    <p>Explora técnicas, composición y teoría para mejorar tus habilidades</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="pages/teoria.html">Teoría</a>
+    <a href="pages/tecnica.html">Técnicas</a>
+
+    <div class="dropdown">
+      <button class="dropbtn">Recursos externos ▾</button>
+      <div class="dropdown-content">
+        <span class="dropdown-label">Tutoriales</span>
+        <a href="https://drawabox.com/" target="_blank">Drawabox</a>
+        <a href="https://www.proko.com/" target="_blank">Proko</a>
+        <a href="https://www.ctrlpaint.com/" target="_blank">Ctrl+Paint</a>
+
+        <span class="dropdown-label">Modelos 3D</span>
+        <a href="https://sketchfab.com/" target="_blank">Sketchfab</a>
+        <a href="https://www.justsketch.me/" target="_blank">JustSketchMe</a>
+        <a href="https://www.artstation.com/pose-tool" target="_blank">ArtStation Pose Tool</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Intro -->
+  <section class="card intro-section">
+    <div class="intro-card">
+      <img src="images/fern.gif" alt="Proceso de dibujo">
+      <div class="intro-text">
+        <h2>Dibujar es un proceso</h2>
+        <p>No cualquiera comienza a dibujar a los 5 minutos. Aquí aprenderás paso a paso, sin miedo.</p>
+        <a href="#tecnicas" class="button-link">Explorar el Arte</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="card video-section">
+    <h2>Video destacado</h2>
+    <p>Explora los fundamentos del dibujo con este tutorial visual.</p>
+    <div class="video-wrapper">
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID"
+        title="Tutorial de dibujo" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="card gallery-section">
+    <h2>Inspiración visual</h2>
+    <p>Observa ejemplos de trazos, estilos y personajes en distintas etapas del proceso.</p>
+    <div class="gallery-grid">
+      <img src="images/art.jpg" alt="Ejemplo 1">
+      <img src="images/sombreado.jpeg" alt="Ejemplo 2">
+      <img src="images/est.jpg" alt="Ejemplo 3">
+    </div>
+  </section>
+
+  <!-- Técnicas y teoría lado a lado -->
+  <div class="two-columns">
+
+    <section id="tecnicas" class="card">
+      <h2>Técnicas de Dibujo</h2>
+      <p>Aprende sombreado, perspectiva y más con ejemplos interactivos.</p>
+
+      <div class="canvas-container">
+        <p>Prueba dibujar aquí:</p>
+
+        <canvas id="drawCanvas" width="500" height="400"></canvas>
+
+        <div class="controls">
+          <label for="colorPicker">Color:</label>
+          <input type="color" id="colorPicker" value="#333333">
+
+          <label for="brushSize">Tamaño del pincel:</label>
+          <input type="range" id="brushSize" min="1" max="20" value="2">
+
+          <button id="clearBtn">Borrar Boceto</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="teoria" class="card">
+      <h2>Teoría del Dibujo</h2>
+      <p>Colores, formas, luz y sombra explicados de manera sencilla.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Aprende a Dibujar - Tu espacio creativo</p>
+  </footer>
+
+</div>
+
+
+<!-- SCRIPT -->
+<script>
+const canvas = document.getElementById('drawCanvas');
+const ctx = canvas.getContext('2d');
+let drawing = false;
+let currentColor = document.getElementById('colorPicker').value;
+let brushSize = document.getElementById('brushSize').value;
+let lastX = 0, lastY = 0;
+
+canvas.addEventListener('mousedown', (e) => {
+  drawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+canvas.addEventListener('mouseup', () => drawing = false);
+canvas.addEventListener('mouseout', () => drawing = false);
+canvas.addEventListener('mousemove', draw);
+
+document.getElementById('colorPicker').addEventListener('input', (e) => {
+  currentColor = e.target.value;
+});
+
+document.getElementById('brushSize').addEventListener('input', (e) => {
+  brushSize = e.target.value;
+});
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+function draw(e) {
+  if (!drawing) return;
+  ctx.strokeStyle = currentColor;
+  ctx.lineWidth = brushSize;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+}
+</script>
+
+</body>
+</html>
+
+
